@@ -1,0 +1,111 @@
+#Katie Levitt
+#00284176
+#Programming For It CIS-153-O1B
+#Final Project Game Suite
+
+#inporting random definitions
+import random
+char = "RPS"
+run = True
+#defining rock paper scissor game
+def rock(player,computer):
+    if player == "R" and computer == "P":
+        print("computer won")
+    elif player == "R" and computer == "S":
+        print("You won")
+    elif player == "P" and computer == "R":
+        print("You won")
+    elif player == "P" and computer == "S":
+        print("computer won")
+    elif player == "S" and computer == "P":
+        print("You won")
+    elif player == "S" and computer == "P":
+        print("computer won")
+    elif player == computer:
+        print("tie")
+    elif player not in char:
+        print("You chose another character")
+        print("Your game is ending")
+        quit()
+#defining tellquestion for fortune teller
+def tellques():
+        question = input("What is your question: \n")
+        print("Thinking....")
+        print("\n")
+        print ("I have the answer to your question of, ", question)
+        print(random.choice(tellanswer()))
+#dictionary for tell answer
+tellanswer = {"It is certain", "Yes", "All signs point to yes", "Without a doubt", "Yes, definitely",
+              "You may rely on it", "Most Likely", "Outlook looks good", "Ask again later",
+              "Better not tell you now", "Cannot predict now", "Concentrate and ask again",
+              "Don't count on it", "No", "Outlook not so good", "Outlook is hazy, try again"}
+#Mad Lib story
+lib = "On Friday, {0} was arrested in {1} for shoplifting. When the police responded they found him {2}. When asked why he had stolen {3}, {0} explained that he needed them for his {4}. Police took him to {5} and held him until his trial. At his trial he called the judge a {6}. The judge sentenced him to {7} days in jail. After his sentence, {0} return to {8}. He tried to turn his life around and became a {9}. Eventually he fell back into his ways of crime and was arrested for {10}. The {0} spent the rest of his life in jail"
+
+
+#asking user to play games and choosing what game to play. Exiting if user chooses no
+game = input("Welcome to Game Suite. Would you like to play a game? Please enter (Y)es or (N)o: ")
+if game == "Y":
+    choice = input ("Great, I love to play games. You will have your choice of three. Enter 1 to play Rock, Paper, Scissor. Enter 2 to play Mad Lib. Enter 3 to play Fortune Teller: ")
+#rock paper scissor game
+    if choice == "1":
+        while run :
+            print("You chose Rock, Paper Scissor. We will be starting your game.")
+            print("\n")
+            print("Instructions: Enter(P)aper, (R)ock or (S)cissor. Please use caps, When you are finished playing enter any other character.\n", rock())
+            player = input("Chose your selection: \n")
+            computer = random.choice(char)
+            print(rps(player,computer))
+            repeat = input("Would you like to play again? (Y)es or (N)o. Please use caps. \n")
+            if repeat == "Y":
+                tellerques()
+            else:
+                print("Come back if you want to play again!")
+                input("Press enter to exit")
+                break
+#mad Lib game
+    elif choice == "2":
+        print("You chose the Mad Lib. We will be starting your game.")
+        print("\n")
+        print("Instructions: You will be asked for a series of nouns, verbs, adjectives, etc.. to create a paragraph.")
+        print("\n")
+        name = input("Enter a male name, first and last: ")
+        place1 = input("Enter a place: ")
+        adj1 = input("Enter an adjective: ")
+        noun = input("Enter a noun: ")
+        noun2 = input("Enter a noun: ")
+        place2 = input("Enter a place: ")
+        adj2 = input("Enter an adjective: ")
+        num = input("Enter a number: ")
+        place3 = input("Enter a place: ")
+        proff = input("Enter a profession: ")
+        crime = input("Enter a crime: ")
+
+        print(lib
+        .format(name, place1, adj1, noun, noun2, place2, adj2, num, place3, proff, crime))
+        print("\n")
+        print("Thank you for completing the Mad Lib")
+        input("Press enter to exit")
+
+#Fotune teller game
+    elif choice == "3":
+        print("You chose Fortune Teller. We will be starting your game. \n")
+        print("\n")
+        print("Intructions: Ask the fortune teller a yes or no question and you will get a response.")
+        while run:
+            tellerques()
+            repeat = input("Do you have another question? (Y)es or (N)o. Please use caps.: \n")
+            if repeat == "Y":
+                tellerques()
+            else:
+                print("Come back if you think of another question!")
+                input("Press enter to exit")
+                break
+    else:
+        print("You have entered and incorrect choice")
+        print("You will be exiting now")
+        input("Press enter to exit")
+
+else:
+    print("You will be exiting now")
+    input("Press enter to exit")
