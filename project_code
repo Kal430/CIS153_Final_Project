@@ -6,7 +6,6 @@
 #inporting random definitions
 import random
 char = "RPS"
-run = True
 #defining rock paper scissor game
 def rock(player,computer):
     if player == "R" and computer == "P":
@@ -49,7 +48,7 @@ if game == "Y":
     choice = input ("Great, I love to play games. You will have your choice of three. Enter 1 to play Rock, Paper, Scissor. Enter 2 to play Mad Lib. Enter 3 to play Fortune Teller: ")
 #rock paper scissor game
     if choice == "1":
-        while run :
+        while True :
             print("You chose Rock, Paper Scissor. We will be starting your game.")
             print("\n")
             print("Instructions: Enter(P)aper, (R)ock or (S)cissor. Please use caps, When you are finished playing enter any other character.\n", rock())
@@ -92,7 +91,7 @@ if game == "Y":
         print("You chose Fortune Teller. We will be starting your game. \n")
         print("\n")
         print("Intructions: Ask the fortune teller a yes or no question and you will get a response.")
-        while run:
+        while True:
             tellerques()
             repeat = input("Do you have another question? (Y)es or (N)o. Please use caps.: \n")
             if repeat == "Y":
