@@ -6,6 +6,7 @@
 #inporting random definitions
 import random
 char = "RPS"
+
 #defining rock paper scissor game
 def rock(player,computer):
     if player == "R" and computer == "P":
@@ -26,20 +27,27 @@ def rock(player,computer):
         print("You chose another character")
         print("Your game is ending")
         quit()
+#defining player input the computer random printing computer answer and the results of Rock
+def rockout():
+    player = input("Choose your selection: ")
+    computer = (random.choice(char))
+    print("Computer plays", computer)
+    print(rock(player,computer))
+
 #defining tellquestion for fortune teller
 def tellques():
         question = input("What is your question: \n")
         print("Thinking....")
         print("\n")
         print ("I have the answer to your question of, ", question)
-        print(random.choice(tellanswer()))
-#dictionary for tell answer
-tellanswer = {"It is certain", "Yes", "All signs point to yes", "Without a doubt", "Yes, definitely",
+        print(random.choice(tellanswer))
+#list for tell answer
+tellanswer = ["It is certain", "Yes", "All signs point to yes", "Without a doubt", "Yes, definitely",
               "You may rely on it", "Most Likely", "Outlook looks good", "Ask again later",
               "Better not tell you now", "Cannot predict now", "Concentrate and ask again",
-              "Don't count on it", "No", "Outlook not so good", "Outlook is hazy, try again"}
+              "Don't count on it", "No", "Outlook not so good", "Outlook is hazy, try again"]
 #Mad Lib story
-lib = "On Friday, {0} was arrested in {1} for shoplifting. When the police responded they found him {2}. When asked why he had stolen {3}, {0} explained that he needed them for his {4}. Police took him to {5} and held him until his trial. At his trial he called the judge a {6}. The judge sentenced him to {7} days in jail. After his sentence, {0} return to {8}. He tried to turn his life around and became a {9}. Eventually he fell back into his ways of crime and was arrested for {10}. The {0} spent the rest of his life in jail"
+lib = "On Friday, {0} was arrested in {1} for shoplifting. \n When the police responded they found him {2}. \n When asked why he had stolen {3}, {0} explained that he needed them for his {4}. \n Police took him to {5} and held him until his trial. \n At his trial he called the judge a {6}. \n The judge sentenced him to {7} days in jail. \n After his sentence, {0} return to {8}. \n He tried to turn his life around and became a {9}. \n Eventually he fell back into his ways of crime and was arrested for {10}. \n The {0} spent the rest of his life in jail"
 
 
 #asking user to play games and choosing what game to play. Exiting if user chooses no
@@ -51,13 +59,12 @@ if game == "Y":
         while True :
             print("You chose Rock, Paper Scissor. We will be starting your game.")
             print("\n")
-            print("Instructions: Enter(P)aper, (R)ock or (S)cissor. Please use caps, When you are finished playing enter any other character.\n", rock())
-            player = input("Chose your selection: \n")
-            computer = random.choice(char)
-            print(rps(player,computer))
+            print("Instructions: Enter(P)aper, (R)ock or (S)cissor. Please use caps, When you are finished playing enter any other character.")
+            rockout()
             repeat = input("Would you like to play again? (Y)es or (N)o. Please use caps. \n")
             if repeat == "Y":
-                tellerques()
+                rockout()
+                repeat = input("Would you like to play again? (Y)es or (N)o. Please use caps. \n")
             else:
                 print("Come back if you want to play again!")
                 input("Press enter to exit")
@@ -92,10 +99,11 @@ if game == "Y":
         print("\n")
         print("Intructions: Ask the fortune teller a yes or no question and you will get a response.")
         while True:
-            tellerques()
+            tellques()
             repeat = input("Do you have another question? (Y)es or (N)o. Please use caps.: \n")
             if repeat == "Y":
-                tellerques()
+                tellques()
+                repeat = input("Do you have another question? (Y)es or (N)o. Please use caps.: \n")
             else:
                 print("Come back if you think of another question!")
                 input("Press enter to exit")
